@@ -42,7 +42,7 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
                     class_id <input type="text" id="text" name="id_student"><br>
                     <input type="submit" id="button" name="b2"><br><br><br>
                     <?php
-            if(isset($_POST['b2']) && isset($_POST['name_student'])!='' && isset($_POST['surname_student'])!='' && isset($_POST['id_student']) !='')
+            if(isset($_POST['b2']) && isset($_POST['name_student']) && isset($_POST['surname_student']) && isset($_POST['id_student']))
             {
                 $student = $_POST['name_student'];
                 $student1 = $_POST['surname_student'];
@@ -80,7 +80,7 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
                             age <input type="text" id="text" name="age"><br>
                             <input type="submit" id="button" name="d4"><br><br><br>
                             <?php
-            if(isset($_POST['d4']) && isset($_POST['name_teacher'])!='' && isset($_POST['surname_teacher'])!='' && isset($_POST['age']) !='')
+            if(isset($_POST['d4']) && isset($_POST['name_teacher']) && isset($_POST['surname_teacher']) && isset($_POST['age']) )
             {
                 $teacher = $_POST['name_teacher'];
                 $teacher1 = $_POST['surname_teacher'];
@@ -90,17 +90,93 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
             }
             ?>
 
-    </div>
-    </form>
-    <h1>Wyświetlanie tablic</h1>
-    <form method="post">
-        <input class="button" type="submit" name="button1" value="klasa" />
-        <input class="button" type="submit" name="button2" value="uczniowie" />
-        <input class="button" type="submit" name="button3" value="przedmioty" />
-        <input class="button" type="submit" name="button4" value="nauczyciele" />
-        <input class="button" type="submit" name="button5" value="uzytkownicy" />
-    </form>
 
+    </div>
+    <div id="box2">
+        <?php
+$result = mysqli_query($conn,"SELECT * FROM klasa");
+echo "<table border='1'>
+<tr>
+<th>name</th>
+<th>id</th>
+</tr>";
+
+while($row = mysqli_fetch_array($result))
+{
+echo "<tr>";
+echo "<td>" . $row['name'] . "</td>";
+echo "<td>" . $row['id'] . "</td>";
+
+echo "</tr>";
+}
+echo "</table>";
+?>
+
+        <?php
+$result = mysqli_query($conn,"SELECT * FROM student");
+echo "<table border='1'>
+<tr>
+<th>id</th>
+<th>name</th>
+<th>surname</th>
+<th>class_id</th>
+</tr>";
+
+while($row = mysqli_fetch_array($result))
+{
+echo "<tr>";
+echo "<td>" . $row['id'] . "</td>";
+echo "<td>" . $row['name'] . "</td>";
+echo "<td>" . $row['Surname'] . "</td>";
+echo "<td>" . $row['class_id'] . "</td>";
+
+echo "</tr>";
+}
+echo "</table>";
+?>
+        <?php
+$result = mysqli_query($conn,"SELECT * FROM subject");
+echo "<table border='1'>
+<tr>
+<th>id</th>
+<th>name</th>
+<th>class_id</th>
+</tr>";
+
+while($row = mysqli_fetch_array($result))
+{
+echo "<tr>";
+echo "<td>" . $row['id'] . "</td>";
+echo "<td>" . $row['name'] . "</td>";
+echo "<td>" . $row['class_id'] . "</td>";
+
+echo "</tr>";
+}
+echo "</table>";
+?>
+        <?php
+$result = mysqli_query($conn,"SELECT * FROM teacher");
+echo "<table border='1'>
+<tr>
+<th>id</th>
+<th>name</th>
+<th>surname</th>
+<th>age</th>
+</tr>";
+
+while($row = mysqli_fetch_array($result))
+{
+echo "<tr>";
+echo "<td>" . $row['id'] . "</td>";
+echo "<td>" . $row['name'] . "</td>";
+echo "<td>" . $row['Surname'] . "</td>";
+echo "<td>" . $row['age'] . "</td>";
+
+echo "</tr>";
+}
+echo "</table>";
+?>
+    </div>
 </body>
 
 </html>

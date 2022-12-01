@@ -17,11 +17,21 @@
   margin: auto;
   width: 400px;
   padding: 20px;
-  border-radius: 5%;
+  border-radius: 2%;
   border: solid;
   margin-bottom: 40px;
   margin-top: 120px;
 }
 body {
   background-image: linear-gradient(to right, #000066, #cc33ff);
+}
+#box2 {
+  background-color: lightblue;
+  margin: auto;
+  width: 400px;
+  padding: 20px;
+  border-radius: 2%;
+  border: solid;
+  margin-bottom: 40px;
+  margin-top: 120px;
 }
