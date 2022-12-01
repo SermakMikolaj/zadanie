@@ -1,0 +1,27 @@
+#text {
+  height: 22px;
+  border-radius: 5px;
+  padding: 4px;
+  border: solid thin #aaa;
+}
+#button {
+  padding: 10;
+  width: 100px;
+  color: wheat;
+  background-image: linear-gradient(to right, red, purple);
+  border-radius: 5px;
+  height: 40px;
+}
+#box {
+  background-color: lightblue;
+  margin: auto;
+  width: 400px;
+  padding: 20px;
+  border-radius: 5%;
+  border: solid;
+  margin-bottom: 40px;
+  margin-top: 120px;
+}
+body {
+  background-image: linear-gradient(to right, #000066, #cc33ff);
+}

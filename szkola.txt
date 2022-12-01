@@ -1,0 +1,45 @@
+
+
+Create Database szkola;
+use szkola;
+
+
+Create TABLE student (
+id int NOT NULL AUTO_INCREMENT primary key,
+    name varchar(20) NOT NULL,
+    Surname varchar(20) NOT NULL,
+class_id int NOT NULL
+    );
+    
+    CREATE TABLE klasa (
+        id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+        name varchar(20) NOT NULL
+        );
+    CREATE TABLE Teacher (
+         id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+         name varchar(20) NOT NULL,
+         Surname varchar(20) NOT NULL,
+         age int(2) NOT NULL
+         );
+     CREATE TABLE Subject (
+          id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+          name varchar(20) NOT NULL,
+          class_id int NOT NULL
+             );
+                 ALTER TABLE teacher
+             ADD FOREIGN KEY (id)REFERENCES subject (id);
+       		
+	     ALTER TABLE student
+	     ADD FOREIGN KEY (class_id) REFERENCES klasa(id);
+
+	     ALTER TABLE Subject
+	     ADD FOREIGN KEY (class_id) REFERENCES klasa (id);
+    CREATE TABLE uzyt  (
+          id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+          haslo varchar(50) NOT NULL,
+          login varchar(20)  NOT NULL UNIQUE,
+          imie varchar(20) not null,
+          nazwisko varchar(20) not null, 
+          wiek int(20) not null
+
+          );
